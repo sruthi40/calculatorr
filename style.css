@@ -1,0 +1,161 @@
+/* ==========================================================================
+   MODERN MINIMALIST CALCULATOR STYLESHEET (iOS DARK MODE INSPIRATION)
+   ========================================================================== */
+
+/* 1. CSS Custom Properties (Theme Variables)
+   Using variables makes it easy to change colors in one central spot. */
+:root {
+  --bg-app: #0b0c10;
+  --bg-calculator: #1c1c1e;
+  --btn-number-bg: #2c2c2e;
+  --btn-number-hover: #3a3a3c;
+  --btn-function-bg: #48484a;
+  --btn-function-hover: #5a5a5e;
+  --btn-operator-bg: #ff9f0a;
+  --btn-operator-hover: #f38f00;
+  --btn-operator-active-bg: #ffffff;
+  --btn-operator-active-color: #ff9f0a;
+  --text-primary: #ffffff;
+  --text-secondary: #8e8e93;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* 2. Global Resets
+   Clears default browser padding/margins and ensures consistent sizing. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none; /* Prevents text selection when rapidly clicking buttons */
+}
+
+body {
+  background-color: var(--bg-app);
+  font-family: var(--font-family);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* 3. Calculator Outer Frame */
+.calculator {
+  width: 100%;
+  max-width: 340px;
+  background-color: var(--bg-calculator);
+  border-radius: 40px;
+  padding: 24px 20px 28px 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7),
+              0 0 0 1px rgba(255, 255, 255, 0.08); /* Subtle border ring */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 4. Display Screen */
+.display {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 110px;
+  padding: 0 12px;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+.previous-operand {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  min-height: 24px;
+}
+
+.current-operand {
+  font-size: 3.2rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  line-height: 1.1;
+  max-width: 100%;
+  transition: font-size 0.15s ease;
+}
+
+/* 5. Keypad Grid Layout */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+/* 6. Base Button Styling */
+.btn {
+  height: 64px;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  font-family: var(--font-family);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: filter 0.15s ease, transform 0.08s ease, background-color 0.15s ease;
+}
+
+/* Tactile push effect when clicked */
+.btn:active {
+  transform: scale(0.94);
+  filter: brightness(1.25);
+}
+
+/* 7. Button Categories */
+
+/* Number Buttons (0-9, .) */
+.btn-number {
+  background-color: var(--btn-number-bg);
+}
+
+.btn-number:hover {
+  background-color: var(--btn-number-hover);
+}
+
+/* Function Buttons (AC, ±, %) */
+.btn-function {
+  background-color: var(--btn-function-bg);
+  color: var(--text-primary);
+  font-size: 1.35rem;
+}
+
+.btn-function:hover {
+  background-color: var(--btn-function-hover);
+}
+
+/* Operator Buttons (+, -, ×, ÷, =) */
+.btn-operator {
+  background-color: var(--btn-operator-bg);
+  font-size: 1.8rem;
+}
+
+.btn-operator:hover {
+  background-color: var(--btn-operator-hover);
+}
+
+/* Special styling for the '0' button (wide pill shape) */
+.btn-zero {
+  grid-column: span 2;
+  border-radius: 35px;
+  justify-content: flex-start;
+  padding-left: 26px;
+}
+
+/* Active operator state (when an operator is selected and waiting for the next number) */
+.btn-operator.is-active {
+  background-color: var(--btn-operator-active-bg);
+  color: var(--btn-operator-active-color);
+}
+

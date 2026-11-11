@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Ensures the page renders properly on mobile and desktop devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern iOS-Style Calculator</title>
+
+  <!-- Google Font: Inter for clean, modern typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Link to our external CSS stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Link to our external JavaScript file. 
+       The "defer" attribute ensures JS loads after the HTML is parsed -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Main Calculator Container -->
+  <main class="calculator">
+    
+    <!-- DISPLAY SCREEN -->
+    <div class="display">
+      <!-- Shows the previous number and chosen operator (e.g., "12 +") -->
+      <div class="previous-operand" id="previousOperand"></div>
+      <!-- Shows the current number being typed or the final result -->
+      <div class="current-operand" id="currentOperand">0</div>
+    </div>
+
+    <!-- BUTTON KEYPAD (Organized in a 4-column grid) -->
+    <div class="keypad">
+      <!-- Row 1: Function Keys -->
+      <button class="btn btn-function" data-action="clear">AC</button>
+      <button class="btn btn-function" data-action="toggle-sign">±</button>
+      <button class="btn btn-function" data-action="percent">%</button>
+      <button class="btn btn-operator" data-operator="÷">÷</button>
+
+      <!-- Row 2: Numbers 7, 8, 9 and Multiply -->
+      <button class="btn btn-number" data-number="7">7</button>
+      <button class="btn btn-number" data-number="8">8</button>
+      <button class="btn btn-number" data-number="9">9</button>
+      <button class="btn btn-operator" data-operator="×">×</button>
+
+      <!-- Row 3: Numbers 4, 5, 6 and Subtract -->
+      <button class="btn btn-number" data-number="4">4</button>
+      <button class="btn btn-number" data-number="5">5</button>
+      <button class="btn btn-number" data-number="6">6</button>
+      <button class="btn btn-operator" data-operator="-">−</button>
+
+      <!-- Row 4: Numbers 1, 2, 3 and Add -->
+      <button class="btn btn-number" data-number="1">1</button>
+      <button class="btn btn-number" data-number="2">2</button>
+      <button class="btn btn-number" data-number="3">3</button>
+      <button class="btn btn-operator" data-operator="+">+</button>
+
+      <!-- Row 5: 0 (wide pill button), Decimal, and Equals -->
+      <button class="btn btn-number btn-zero" data-number="0">0</button>
+      <button class="btn btn-number" data-number=".">.</button>
+      <button class="btn btn-operator" data-action="calculate">=</button>
+    </div>
+
+  </main>
+
+</body>
+</html>
+
